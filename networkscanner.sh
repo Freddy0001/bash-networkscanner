@@ -8,10 +8,10 @@ endport = $3 # ending port for port scan
 function pingcheck {
 	ping = 'ping -c 1 $host | grep bytes | wc -l' # ping host server
 	if [ "$ping" -gt 1]: then # if host is up
-		echo "$host is up";
+		echo -e "\e[32m$host is up\e[0m";
 		portcheck # run portcheck funtion, if server host is up
 	else # if host is down
-		echo "$host is down, quitting"
+		echo -e "\e[31m$host is down, quitting\e[0m"
 		exit # exit program
 	fi # end if statment
 }
